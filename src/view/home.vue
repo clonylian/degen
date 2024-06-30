@@ -6,7 +6,7 @@
     </video>
     <div class="header">
       <div class="headl">
-        <a class="headllink" href="/"
+        <router-link class="headllink" to="/"
           ><svg fill="currentColor" viewBox="0 0 789 668" class="headlsvg">
             <path
               d="M115.185 411.477L118.367 469.444C118.575 473.392 120.055 477.107 122.552 480.15C140.007 501.282 218.264 575.014 394.616 575.014C570.968 575.014 648.278 502.234 666.38 480.544C669.108 477.27 670.68 473.206 670.934 468.933L674.089 411.517C695.084 399.997 716.758 386.98 716.758 386.98C750.835 368.518 788.866 395.038 788.935 433.936C789.051 496.87 739.877 561.545 673.548 602.301C598.758 648.258 487.117 667.324 394.664 667.324C302.211 667.324 190.57 648.258 115.78 602.301C49.4513 561.545 0.277187 496.893 0.392781 433.936C0.462138 395.038 38.4929 368.518 72.5702 386.98C72.5702 386.98 94.207 399.965 115.185 411.477Z"
@@ -14,63 +14,119 @@
             <path
               d="M394.641 0.113525C538.834 0.113525 577.929 3.48079 636.558 10.2154H636.535C663.561 13.3272 685.224 33.438 683.212 60.6782L661.616 354.872C654.858 356.83 647.488 359.303 639.223 362.077C595.905 376.615 527.997 399.404 394.64 399.404C261.283 399.404 193.376 376.615 150.057 362.077C141.784 359.3 134.407 356.825 127.643 354.866L106.047 60.6782C104.059 33.438 125.652 12.8395 152.724 10.2154C210.637 4.59548 270.932 0.113525 394.641 0.113525ZM137.991 495.835L138.067 496.869L139.557 497.212C139.024 496.748 138.502 496.289 137.991 495.835ZM649.85 497.178L651.193 496.869L651.262 495.928C650.8 496.341 650.329 496.757 649.85 497.178Z"
             ></path></svg
-        ></a>
+        ></router-link>
       </div>
       <div class="headc">
-        <button class="headcbut">
-          <span>Airdrops</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
-            data-slot="icon"
-            class="headcsvg"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-              clip-rule="evenodd"
-            ></path>
-          </svg>
-        </button>
-        <button class="headcbut">
-          <span>Chain</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
-            data-slot="icon"
-            class="headcsvg"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-              clip-rule="evenodd"
-            ></path>
-          </svg>
-        </button>
-        <button class="headcbut">
-          <span>Devs</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
-            data-slot="icon"
-            class="headcsvg"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-              clip-rule="evenodd"
-            ></path>
-          </svg>
-        </button>
-        <a href="https://www.degen.tips/tokenomics" class="headca"
-          >Tokenomics</a
-        >
+        <div class="relative">
+          <button @click="tabshow('1')" class="headcbut">
+            <span>Airdrops</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+              data-slot="icon"
+              class="headcsvg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+          <div :class="taby == '1' ? 'headctabs flexs' : 'headctabs'">
+            <div class="headctabb">
+              <a class="headctab" href="https://www.degen.tips/raindrops"
+                >Raindrops</a
+              ><a class="headctab" href="https://www.degen.tips/airdrop1"
+                >Airdrop 1</a
+              ><a
+                class="headctab"
+                href="https://www.degen.tips/airdrop2/season5"
+                >Airdrop 2</a
+              ><a
+                class="headctab"
+                href="https://www.degen.tips/liquidity-mining/season4"
+                >Liquidity Mining</a
+              ><a class="headctab" href="https://www.degen.tips/faq">FAQ</a>
+            </div>
+          </div>
+        </div>
+        <div class="relative">
+          <button @click="tabtshow('1')" class="headcbut">
+            <span>Chain</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+              data-slot="icon"
+              class="headcsvg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+          <div :class="tabt == '1' ? 'headctabs flexs' : 'headctabs'">
+            <div class="headctabb">
+              <a
+                target="_blank"
+                class="headctab"
+                href="https://bridge.degen.tips/"
+                >Bridge</a
+              ><a
+                target="_blank"
+                class="headctab"
+                href="https://explorer.degen.tips/"
+                >Explorer</a
+              ><a
+                target="_blank"
+                class="headctab"
+                href="https://names.degen.tips/"
+                >Name Service</a
+              ><a
+                target="_blank"
+                class="headctab"
+                href="https://relay.link/bridge/degen/?fromChainId=8453&amp;currency=degen"
+                >Relay Bridge</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <button @click="tabsshow('1')" class="headcbut">
+            <span>Devs</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+              data-slot="icon"
+              class="headcsvg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+          <div :class="tabs == '1' ? 'headctabs flexs' : 'headctabs'">
+            <div class="headctabb">
+              <a class="headctab" href="https://www.degen.tips//api">API</a
+              ><a class="headctab" href="https://www.degen.tips//grants"
+                >Grants</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <router-link to="/tokenomics" class="headca">Tokenomics</router-link>
       </div>
       <div class="headr">
         <button @click="render()" class="headrbut">
@@ -581,7 +637,36 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-
+let taby = ref("0");
+let tabshow = (str) => {
+  if (str == taby.value) {
+    taby.value = "0";
+  } else {
+    taby.value = str;
+    tabt.value = "0";
+    tabs.value = "0";
+  }
+};
+let tabt = ref("0");
+let tabtshow = (str) => {
+  if (str == tabt.value) {
+    tabt.value = "0";
+  } else {
+    tabt.value = str;
+    taby.value = "0";
+    tabs.value = "0";
+  }
+};
+let tabs = ref("0");
+let tabsshow = (str) => {
+  if (str == tabs.value) {
+    tabs.value = "0";
+  } else {
+    taby.value = "0";
+    tabt.value = "0";
+    tabs.value = str;
+  }
+};
 let render = () => {
   ms_init();
 };
@@ -590,6 +675,9 @@ let render = () => {
 <style scoped>
 .ymain {
   width: 100%;
+}
+.relative {
+  position: relative;
 }
 .yvideo {
   opacity: 0.15;
@@ -652,6 +740,41 @@ let render = () => {
 .headcsvg {
   width: 1.25rem;
   height: 1.25rem;
+}
+.headctabs {
+  width: 100vw;
+  max-width: min-content;
+  padding: 0 1rem;
+  display: none;
+  position: absolute;
+  z-index: 10;
+  top: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.flexs {
+  display: flex;
+}
+.headctabb {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1), 0 0 #0000;
+  color: rgb(224 242 254);
+  background: rgb(15 23 42);
+  display: flex;
+  flex-direction: column;
+  width: 15rem;
+  padding: 1rem;
+  border: 1px solid rgb(139 92 246);
+  box-sizing: border-box;
+}
+.headctab {
+  color: rgb(224 242 254);
+  padding: 1rem;
+  display: block;
+}
+.headctab:hover {
+  color: rgb(139 92 246);
+  background: rgb(30 41 59);
 }
 .headca {
   font-family: "protoMono";
